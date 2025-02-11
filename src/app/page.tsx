@@ -66,7 +66,7 @@ export default function Home() {
                   When I&apos;m not diving into datasets or fine-tuning ML models, you&apos;ll find me experimenting with new Chinese recipes, capturing life&apos;s moments through my camera lens, or working out in the gym.
                 </p>
                 <p className="text-[#4a4a4a] text-lg leading-relaxed">
-                I&apos;m particularly excited about the AI revolution and have fully embraced AI-driven workflows in all my projects. Looking forward to connect with you all!
+                  I&apos;m particularly excited about the AI revolution and have fully embraced AI-driven workflows in all my projects. Looking forward to connect with you all!
                 </p>
               </div>
 
