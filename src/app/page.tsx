@@ -1,16 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
-import { Dosis } from 'next/font/google';
 import { Inter } from 'next/font/google';
 import ProjectCard from '@/components/ProjectCard';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
-
-const dosis = Dosis({ 
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  display: 'swap',
-});
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -65,15 +58,15 @@ export default function Home() {
               
               <div className="space-y-6">
                 <p className="text-[#4a4a4a] text-lg leading-relaxed">
-                  Hey there! I'm Shihao Wang, a Data Science graduate student at USC with a unique journey from economics to data science. 
+                  Hey there! I&apos;m Shihao Wang, a Data Science graduate student at USC with a unique journey from economics to data science. 
                   Currently seeking opportunities to apply my data expertise in meaningful ways.
                 </p>
 
                 <p className="text-[#4a4a4a] text-lg leading-relaxed">
-                  When I'm not diving into datasets or fine-tuning ML models, you'll find me experimenting with new Chinese recipes, capturing life's moments through my camera lens, or working out in the gym.
+                  When I&apos;m not diving into datasets or fine-tuning ML models, you&apos;ll find me experimenting with new Chinese recipes, capturing life&apos;s moments through my camera lens, or working out in the gym.
                 </p>
                 <p className="text-[#4a4a4a] text-lg leading-relaxed">
-                I'm particularly excited about the AI revolution and have fully embraced AI-driven workflows in all my projects. Looking forward to connect with you all!
+                I&apos;m particularly excited about the AI revolution and have fully embraced AI-driven workflows in all my projects. Looking forward to connect with you all!
                 </p>
               </div>
 
