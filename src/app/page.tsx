@@ -1,17 +1,33 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
-import { Inter } from 'next/font/google';
 import ProjectCard from '@/components/ProjectCard';
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
-
-const inter = Inter({ 
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  display: 'swap',
-});
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaArrowUp } from 'react-icons/fa';
+import SkillsRadar from '@/components/SkillsRadar';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [showScroll, setShowScroll] = useState(false);
+
+  useEffect(() => {
+    const checkScrollTop = () => {
+      if (!showScroll && window.scrollY > 400) {
+        setShowScroll(true);
+      } else if (showScroll && window.scrollY <= 400) {
+        setShowScroll(false);
+      }
+    };
+
+    window.addEventListener('scroll', checkScrollTop);
+    return () => window.removeEventListener('scroll', checkScrollTop);
+  }, [showScroll]);
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <main className="min-h-screen">
       <Navbar />
@@ -21,16 +37,52 @@ export default function Home() {
         <h1 className="text-6xl md:text-8xl font-light text-white mb-6">
           Shihao Wang
         </h1>
-        <p className="text-xl md:text-2xl text-white/80 mb-12">
+        <p className="text-xl md:text-2xl text-white/80 mb-8">
           Passionate about changing the world with AI.
         </p>
+        
         <Link 
           href="#about"
           className="text-white border border-white/30 rounded-full px-8 py-3 
-                     hover:bg-white/10 transition-all duration-300"
+                     hover:bg-white/10 transition-all duration-300 mb-12"
         >
           More about me
         </Link>
+
+        {/* Contact Links */}
+        <div className="flex flex-wrap justify-center gap-8 text-lg">
+          <a href="https://github.com/scottie1013" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             className="flex items-center gap-2 text-white/80 hover:text-white 
+                      transition-all duration-300 hover:scale-110">
+            <FaGithub className="text-2xl" />
+            <span>GitHub</span>
+          </a>
+          
+          <a href="tel:+13528710803"
+             className="flex items-center gap-2 text-white/80 hover:text-white 
+                      transition-all duration-300 hover:scale-110">
+            <FaPhone className="text-2xl" />
+            <span>(352) 871-0803</span>
+          </a>
+          
+          <a href="mailto:shihaow@usc.edu"
+             className="flex items-center gap-2 text-white/80 hover:text-white 
+                      transition-all duration-300 hover:scale-110">
+            <FaEnvelope className="text-2xl" />
+            <span>shihaow@usc.edu</span>
+          </a>
+          
+          <a href="https://www.linkedin.com/in/shihao-wang-77592b1a6/"
+             target="_blank"
+             rel="noopener noreferrer"
+             className="flex items-center gap-2 text-white/80 hover:text-white 
+                      transition-all duration-300 hover:scale-110">
+            <FaLinkedin className="text-2xl" />
+            <span>LinkedIn</span>
+          </a>
+        </div>
       </section>
 
       {/* About Me Section */}
@@ -86,10 +138,12 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className={`min-h-screen py-20 bg-black/30 backdrop-blur-sm flex flex-col items-center justify-center px-4 ${inter.className}`}>
+      <section id="skills" className="min-h-screen py-20 bg-black/30 backdrop-blur-sm flex flex-col items-center justify-center px-4">
         <h2 className="text-7xl font-semibold text-white/90 mb-20 tracking-wide">
           SKILLS
         </h2>
+        
+        <SkillsRadar />
         
         <div className="max-w-4xl w-full">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -116,7 +170,7 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section className={`min-h-screen py-20 bg-black/30 backdrop-blur-sm flex flex-col items-center justify-center px-4 ${inter.className}`}>
+      <section className="min-h-screen py-20 bg-black/30 backdrop-blur-sm flex flex-col items-center justify-center px-4">
         <h2 className="text-7xl font-semibold text-white/90 mb-6 tracking-wide">
           EXPERIENCE
         </h2>
@@ -273,48 +327,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Footer */}
-      <section className="py-20 bg-black/30 backdrop-blur-sm">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-semibold text-white mb-8">
-            Let's Connect!
-          </h2>
-          
-          <div className="flex flex-wrap justify-center gap-8 text-lg">
-            <a href="https://github.com/scottie1013" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               className="flex items-center gap-2 text-white/80 hover:text-white 
-                        transition-all duration-300 hover:scale-110">
-              <FaGithub className="text-2xl" />
-              <span>GitHub</span>
-            </a>
-            
-            <a href="tel:+13528710803"
-               className="flex items-center gap-2 text-white/80 hover:text-white 
-                        transition-all duration-300 hover:scale-110">
-              <FaPhone className="text-2xl" />
-              <span>(352) 871-0803</span>
-            </a>
-            
-            <a href="mailto:shihaow@usc.edu"
-               className="flex items-center gap-2 text-white/80 hover:text-white 
-                        transition-all duration-300 hover:scale-110">
-              <FaEnvelope className="text-2xl" />
-              <span>shihaow@usc.edu</span>
-            </a>
-            
-            <a href="https://www.linkedin.com/in/shihao-wang-77592b1a6/"
-               target="_blank"
-               rel="noopener noreferrer"
-               className="flex items-center gap-2 text-white/80 hover:text-white 
-                        transition-all duration-300 hover:scale-110">
-              <FaLinkedin className="text-2xl" />
-              <span>LinkedIn</span>
-            </a>
-          </div>
-        </div>
-      </section>
+      <button
+        onClick={scrollTop}
+        className={`fixed bottom-8 right-8 bg-white/10 backdrop-blur-sm p-4 rounded-full 
+                   border border-white/20 text-white hover:bg-white/20 transition-all 
+                   duration-300 z-50 ${showScroll ? 'opacity-100 translate-y-0' : 
+                   'opacity-0 translate-y-16 pointer-events-none'}`}
+      >
+        <FaArrowUp size={24} />
+      </button>
     </main>
   );
 }
