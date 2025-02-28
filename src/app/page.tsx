@@ -258,6 +258,18 @@ export default function Home() {
             />
             
             <ProjectCard
+              title="Yelp Restaurant Recommender"
+              date="Dec 2024 - Present"
+              description={[
+                "The Yelp Rating Predictor is an interactive web application that predicts how a specific user would rate a restaurant based on their past rating behavior and the characteristics of the restaurant.",
+                "The application also provides personalized restaurant recommendations for users based on predicted ratings."
+              ]}
+              imagePath="/Vegan.jpg"
+              languages={["Python: 55", "Scikit-learn: 30", "Flask: 15"]}
+              githubUrl="https://github.com/scottie1013/Yelp-Restaurant-Recommender-.git"
+            />
+
+            <ProjectCard
               title="LA Dispensary Distribution Analysis"
               date="Aug 2023 - Dec 2023"
               description={[
